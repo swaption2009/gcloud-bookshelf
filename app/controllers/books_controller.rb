@@ -51,8 +51,11 @@ class BooksController < ApplicationController
     end
   end
 
+  # [START create]
   def create
     @book = Book.new book_params
+
+    @book.creator_id = current_user.id if logged_in?
 
     if @book.save
       flash[:success] = "Added Book"
@@ -61,6 +64,7 @@ class BooksController < ApplicationController
       render :new
     end
   end
+  # [END create]
 
   private
 

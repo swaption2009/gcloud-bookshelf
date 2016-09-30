@@ -37,3 +37,6 @@ group :test do
   gem "capybara"
   gem "poltergeist"
 end
+
+gem 'omniauth'
+gem 'omniauth-google-oauth2'

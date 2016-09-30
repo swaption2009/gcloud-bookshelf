@@ -77,4 +77,11 @@ Rails.application.configure do
 
   config.assets.compile = false
   config.assets.digest = true
+
+  # Use a different logger for distributed setups.
+  # [START logging]
+  if Dir.exist? "/var/log/app_engine/custom_logs"
+    config.logger = ActiveSupport::TaggedLogging.new Logger.new("/var/log/app_engine/custom_logs/application.log")
+  end
+  # [END logging]
 end
